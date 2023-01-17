@@ -1,0 +1,55 @@
+# dependencies
+/node_modules
+node-modules
+/.pnp
+.pnp.js
+
+# testing
+/coverage
+
+# vscode
+.vscode/
+/.vscode
+
+# next.js
+/.next/
+/out/
+
+# expo
+.expo/
+/.expo
+
+# production
+*/build
+*/dist
+/build
+/dist
+
+# misc
+.DS_Store
+*.pem
+
+# debug
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+
+# local env files
+.env*.local
+/.env
+
+# vercel
+.vercel
+
+# typescript
+*.tsbuildinfo
+next-env.d.ts
+
+# other files
+*.jks
+*.p8
+*.p12
+*.key
+*.mobileprovision
+*.orig.*
