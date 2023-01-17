@@ -36,7 +36,7 @@
 
 <br>
 
-# NLW SETUP
+# NLW 11 - SETUP
 
 <div align="center">
 
@@ -54,7 +54,7 @@
 <img src=".github/assets/landing.png" alt="Landing page NLW Setup" />
 <br>
 
-**_NLW SETUP_** é o projeto desenvolvido durante a trilha Ignite da **Next Level Week**, um evento online produzido pela [**Rocketseat**](https://github.com/Rocketseat).
+**_NLW 11 - SETUP_** é o projeto desenvolvido durante a trilha Ignite da **Next Level Week**, um evento online produzido pela [**Rocketseat**](https://github.com/Rocketseat).
 
 ## Tecnologias
 
@@ -75,6 +75,7 @@
       <td>
         <a href="https://reactjs.org/" target="_blank" rel="noopener noreferrer">React</a>,
         <a href="https://www.typescriptlang.org/" target="_blank" rel="noopener noreferrer">TypeScript</a>,
+        <a href="https://vitejs.dev/" target="_blank" rel="noopener noreferrer">Vite</a>,
         <a href="https://tailwindcss.com/" target="_blank" rel="noopener noreferrer">TailwindCSS</a>
       </td>
     </tr>
@@ -90,7 +91,7 @@
 
 ## Layout
 
-O layout das telas da aplicação **_NLW SETUP_** foi desenvolvido pela equipe da **Rocketseat** através da ferramenta [**Figma**](https://www.figma.com).
+O layout das telas da aplicação **_NLW 11 - SETUP_** foi desenvolvido pela equipe da **Rocketseat** através da ferramenta [**Figma**](https://www.figma.com).
 Você pode acessar o layout através deste link: [**Habits**](https://www.figma.com/file/JlYQcvtGp2CYTfvzHhTTMe).
 
 ## Configurações
@@ -128,6 +129,8 @@ $ cd nlw-ignite-setup
 $ npm init -y
 # instalar dependências
 $ npm install
+# iniciar servidor
+$ npm rum dev
 # criar arquivo tsconfig.json
 $ npx tsc --init
 # setup prisma com flag SQLite - schema prisma file / .env
@@ -146,9 +149,13 @@ $ npx prisma db seed
 
 ```bash
 # criar projeto /web
-$
-## instalar dependências
+$ npm create vite@latest
+# definir nome "web", selecionar "React" e em seguida "Typescript"
+
+# instalar dependências
 $ npm install
+# iniciar servidor
+$ npm rum dev
 ```
 
 ### `/mobile`
