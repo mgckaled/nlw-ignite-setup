@@ -1,23 +1,32 @@
-/* map: gera uma div para cada um dos dias da semana */
-/* mostra os dias não preenchidos a partir de uma iteração baseada na constante que carrega os dias do ano gerados */
-// chave: weekday-índice
-
+import dayjs from 'dayjs'
+import { useEffect, useState } from 'react'
+import { api } from '../lib/axios'
 import { generateDatesFromYearBeginning } from '../utils/generate-dates-from-year-beginning'
 import { HabitDay } from './HabitDay'
 
-// array dos dias da semana
 const weekDays = ['D', 'S', 'T', 'Q', 'Q', 'S', 'S']
 
-// atribui a as datas do ano geradas a uma constatne
 const summaryDates = generateDatesFromYearBeginning()
 
-// mínimo de dias mostrados em tela
 const minimumSummaryDatesSize = 18 * 7 // 18 weeks
-
-// dias preenchidos mostrados em tela
 const amountOfDaysToFill = minimumSummaryDatesSize - summaryDates.length
 
+type Summary = {
+	id: string
+	date: string
+	amount: number
+	completed: number
+}[]
+
 export function SummaryTable() {
+	const [summary, setSummary] = useState<Summary>([])
+
+	useEffect(() => {
+		api.get('summary').then(response => {
+			setSummary(response.data)
+		})
+	}, [])
+
 	return (
 		<div className="w-full flex">
 			<div className="grid grid-rows-7 grid-flow-row gap-3">
@@ -35,11 +44,16 @@ export function SummaryTable() {
 
 			<div className="grid grid-rows-7 grid-flow-col gap-3">
 				{summaryDates.map(date => {
+					const dayInSummary = summary.find(day => {
+						return dayjs(date).isSame(day.date, 'day')
+					})
+
 					return (
 						<HabitDay
 							key={date.toString()}
-							amount={5}
-							completed={Math.round(Math.random() * 5)}
+							date={date}
+							amount={dayInSummary?.amount}
+							completed={dayInSummary?.completed}
 						/>
 					)
 				})}
